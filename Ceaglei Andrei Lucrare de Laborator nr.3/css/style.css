@@ -1,0 +1,196 @@
+/* Planeta Verde – style.css (varianta alternativa, v1.2) */
+:root {
+  --verde: #0f6b46;
+  --verde-inchis: #0b3d2b;
+  --verde-deschis: #e8f5ec;
+  --accent: #ffb703;
+  --text: #1f2d27;
+  --raza: 14px;
+  --umbra: 0 6px 22px rgba(11, 61, 43, .14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.75;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--verde); text-underline-offset: 3px; }
+a:hover { color: var(--verde-inchis); }
+
+/* ---------- Header ---------- */
+.hero {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(11,61,43,.92), rgba(15,107,70,.55)),
+    url("imagini/padure.svg") center / cover no-repeat;
+}
+.hero-content { max-width: 680px; }
+.hero h1, .subhero h1 {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  line-height: 1.1;
+  margin: 10px 0 14px;
+}
+.hero p, .subhero p { font-size: 1.2rem; margin-bottom: 24px; }
+
+.subhero {
+  text-align: center;
+  padding: 70px 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0b3d2b, #1f7a55);
+}
+
+.tag {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #b8f0cc;
+}
+.section .tag { color: var(--verde); }   /* contrast bun pe fundal alb */
+.subhero .tag { color: #fff; }
+
+/* ---------- Butoane ---------- */
+.btn, button {
+  display: inline-block;
+  background: var(--accent);
+  color: #1b2a22;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover, button:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.2); color: #1b2a22; }
+
+/* ---------- Meniu ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: var(--verde-inchis);
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: background .15s;
+}
+nav a:hover, nav a.active { background: #1f7a55; color: #fff; }
+
+/* ---------- Sectiuni ---------- */
+.section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+.section h2 { color: var(--verde); font-size: 2rem; margin-bottom: 14px; }
+.section h3 { color: var(--verde-inchis); margin: 22px 0 6px; }
+.section p { margin: 12px 0; }
+.tinted {
+  max-width: none;
+  background: var(--verde-deschis);
+  padding-left: max(24px, calc((100% - 1052px) / 2));
+  padding-right: max(24px, calc((100% - 1052px) / 2));
+}
+.steps, .section ul { padding-left: 26px; margin: 14px 0; }
+.steps li, .section li { margin-bottom: 4px; }
+
+/* ---------- Carduri ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+.card {
+  overflow: hidden;
+  background: #fff;
+  border-radius: var(--raza);
+  box-shadow: var(--umbra);
+  padding-bottom: 18px;
+  transition: transform .2s ease;
+}
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 180px; object-fit: cover; }
+.card h3, .card p { margin-left: 18px; margin-right: 18px; }
+
+/* ---------- Imagini si video ---------- */
+.video { width: min(100%, 620px); border-radius: var(--raza); margin-top: 20px; }
+.wide-image { width: 100%; max-height: 340px; object-fit: cover; border-radius: var(--raza); margin-top: 20px; }
+.figure-reciclare { max-width: 560px; margin: 24px 0 8px; }
+.figure-reciclare img { width: 100%; border-radius: var(--raza); }
+.figure-reciclare figcaption { font-size: .9rem; color: #3d5248; margin-top: 6px; }
+
+/* ---------- Tabel ---------- */
+.table-wrap { overflow-x: auto; margin-top: 20px; border-radius: var(--raza); box-shadow: var(--umbra); }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #d3e3d8; }
+th { background: var(--verde); color: #fff; }
+tbody tr:nth-child(even) { background: #f2f8f4; }
+tbody tr:hover { background: #e3f1e8; }
+
+/* ---------- Contact / formular ---------- */
+.contact-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 44px; }
+form { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+label { font-weight: 700; }
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #9db8a8;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+input:focus, textarea:focus { border-color: var(--verde); }
+textarea { resize: vertical; }
+form button { margin-top: 10px; align-self: flex-start; background: var(--verde); color: #fff; }
+form button:hover { color: #fff; }
+.contact-note { background: var(--verde-deschis); padding: 26px; border-radius: var(--raza); align-self: start; }
+.contact-note img { margin-top: 16px; border-radius: 10px; }
+.form-status {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-left: 4px solid var(--verde);
+  background: var(--verde-deschis);
+  border-radius: 8px;
+}
+
+/* ---------- Subsol ---------- */
+footer { text-align: center; padding: 24px 16px; background: var(--verde-inchis); color: #fff; font-size: .95rem; }
+
+/* ---------- Accesibilitate ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* ---------- Telefon ---------- */
+@media (max-width: 700px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 28px; }
+  .hero { min-height: 340px; padding: 44px 22px; }
+  .section { padding: 42px 18px; }
+  .section h2 { font-size: 1.6rem; }
+  table { font-size: .85rem; }
+  th, td { padding: 8px; }
+}

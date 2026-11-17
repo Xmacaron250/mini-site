@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planeta Verde | Contact</title>
+  <meta name="description" content="Contact Planeta Verde: trimite o idee pentru o planetă mai curată.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%8D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="subhero">
+  <span class="tag">IMPLICĂ-TE</span>
+  <h1>Contact</h1>
+  <p>Spune-ne ce idee ai pentru o planetă mai curată</p>
+</header>
+<nav aria-label="Navigare principală">
+  <a href="index.html">Acasă</a>
+  <a href="despre.html">Despre natură</a>
+  <a class="active" aria-current="page" href="contact.html">Contact</a>
+</nav>
+<main>
+  <section class="section contact-layout">
+    <div>
+      <h2>Trimite un mesaj</h2>
+      <p>Completează formularul de mai jos. Este un exemplu demonstrativ: datele nu sunt trimise către un server.</p>
+      <form id="form-contact">
+        <label for="nume">Nume și prenume</label>
+        <input type="text" id="nume" name="nume" autocomplete="name" placeholder="Scrie numele tău" required>
+
+        <label for="email">Adresa de e-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="exemplu@email.com" required>
+
+        <label for="mesaj">Mesajul tău</label>
+        <textarea id="mesaj" name="mesaj" rows="5" placeholder="Scrie ideea ta..." required></textarea>
+
+        <button type="submit">Trimite mesajul</button>
+        <p id="form-status" class="form-status" role="status" hidden></p>
+      </form>
+    </div>
+    <aside class="contact-note">
+      <h3>Fiecare gest contează</h3>
+      <p>Nu trebuie să faci ceva extraordinar pentru a ajuta planeta. Începe cu un gest mic și inspiră-i și pe ceilalți.</p>
+      <img src="imagini/energie.svg" width="900" height="500" loading="lazy" alt="Soare și energie regenerabilă">
+    </aside>
+  </section>
+</main>
+<footer><p>© 2026 Planeta Verde | Proiect HTML | v1.1</p></footer>
+<script>
+  // Formular demonstrativ: mesaj pe pagină în loc de fereastra alert() care blochează pagina.
+  document.getElementById("form-contact").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var s = document.getElementById("form-status");
+    s.textContent = "Mulțumim pentru mesaj, " + this.nume.value + "! Acesta este doar un formular demonstrativ.";
+    s.hidden = false;
+    this.reset();
+  });
+</script>
+</body>
+</html>
